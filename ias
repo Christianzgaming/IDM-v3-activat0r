@@ -12,7 +12,6 @@ if (!(Test-Path -Path $tempDir)) {
 }
 
 # Download the ZIP file to the temporary directory
-Write-Host "Downloading the archive from $url"
 Invoke-WebRequest -Uri $url -OutFile $output
 
 # Extract the ZIP file

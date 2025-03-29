@@ -1,12 +1,14 @@
 @echo off
 setlocal EnableDelayedExpansion
 set iasver=2.1.1
+chcp 65001 >CRDTS_ChristianGeronimo
+
 
 ::============================================================================
 :: ChristianZ IDM Activation Script (Activator + Registry Cleaner)
 ::============================================================================
 
-mode con: cols=135 lines=40
+mode con: cols=105 lines=45
 title ChristianZ IDM Activation Script (Activator + Registry Cleaner) v%iasver%
 
 :: Ensure Admin Privileges
@@ -98,25 +100,27 @@ timeout /t 1 >nul
 :menu
 ::cls
 echo.
-echo %GREEN%  ======================================================
-echo %GREEN%    :                                                :
-echo %GREEN%    :  [1] Clean Previous IDM Registry Entries       :
-echo %GREEN%    :  [2] Activate Internet Download Manager        :
-echo %GREEN%    :  [3] Extra FileTypes Extensions                :
-echo %GREEN%    :  [4] Do Everything (1 + 2 + 3)                 :
-echo %GREEN%    :  [5] Exit                                      :
-echo %GREEN%    :                                                :
-echo %GREEN%  ======================================================%RESET%
+echo.                                                  
+echo [36m                                            SELECT AN OPTION:[0m
 echo.
-set "choice="
-set /p choice=" Choose an option (1-5): "
-if not defined choice goto :menu
+echo [33m 				╔═ (1) Clean Previous IDM Registry Entries
+echo 				║
+echo 				╠══ (2) Activate Internet Download Manager
+echo 				║
+echo 				╠═══ (3) Extra FileTypes Extensions
+echo 				║
+echo 				╠════ (4) Do Everything (1 + 2 + 3)
+echo 				║
+echo 				╚═╦═══ (5) Exit
+echo          	 	          ║
+set /p choice=.                                 ╚════^> 
 
 if "%choice%"=="1" call :CleanRegistry & call :askReturn
 if "%choice%"=="2" call :ActivateIDM & call :askReturn
 if "%choice%"=="3" call :AddExtensions & call :askReturn
 if "%choice%"=="4" call :DoEverything & call :askReturn
 if "%choice%"=="5" call :quit
+
 
 :: If the input was invalid (not 1-5), re-prompt
 echo %RED% Invalid option. Please enter a number from 1 to 5.%RESET%
