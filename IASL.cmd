@@ -3,7 +3,6 @@ setlocal EnableDelayedExpansion
 set iasver=2.1.1
 chcp 65001 >CRDTS_ChristianGeronimo
 
-
 ::============================================================================
 :: ChristianZ IDM Activation Script (Activator + Registry Cleaner)
 ::============================================================================
